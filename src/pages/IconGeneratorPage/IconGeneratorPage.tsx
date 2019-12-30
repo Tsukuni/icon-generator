@@ -18,7 +18,6 @@ const IconGeneratorPage: React.FC = () => {
 
   const handleClickIcon = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     const inputFile = document.querySelector(`input[name=${iconName}]`);
-    console.log(inputFile)
     inputFile && inputFile.dispatchEvent(new MouseEvent("click"));
   }
 

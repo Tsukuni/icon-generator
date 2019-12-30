@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Icon from '../atoms/Icon';
+import FramedIcon from '../../atoms/FramedIcon';
 import styled from 'styled-components';
-import FileInput from '../atoms/FileInput';
+import FileInput from '../../atoms/FileInput';
 
 type IconFormType = {
   src?: string;
@@ -12,9 +12,9 @@ type IconFormType = {
 
 const IconForm: React.FC<IconFormType> = ({ src, iconName, onClick, onChange }) => (
   <>
-    {src ? <Icon src={src} onClick={onClick}/> :
+    {src ? <FramedIcon src={src} onClick={onClick}/> :
       <EmptyIcon onClick={onClick}>
-        クリックしてください
+        <Label>クリックしてください</Label>
       </EmptyIcon>
     }
     <FileInput name={iconName} onChange={onChange} hidden={true} />
@@ -22,10 +22,24 @@ const IconForm: React.FC<IconFormType> = ({ src, iconName, onClick, onChange }) 
 )
 
 const EmptyIcon = styled.div`
+  position: relative;
   background-color: lightgrey;
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+`
+const Label = styled.span`
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  font-size: 8px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 8px;
+  width: 120px;
 `
 
 export default IconForm;
