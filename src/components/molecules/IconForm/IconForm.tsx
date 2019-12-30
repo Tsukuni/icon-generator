@@ -2,22 +2,22 @@ import * as React from 'react';
 import FramedIcon from '../../atoms/FramedIcon';
 import styled from 'styled-components';
 import FileInput from '../../atoms/FileInput';
+import { ICON_SIZE } from '../../../utils/constants';
 
 type IconFormType = {
   src?: string;
-  iconLabel?: string;
+  iconState: any;
   iconName: string;
-  frameColor?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const IconForm: React.FC<IconFormType> = ({ src, iconLabel, iconName, frameColor, onClick, onChange }) => (
+const IconForm: React.FC<IconFormType> = ({ src, iconState, iconName, onClick, onChange }) => (
   <>
     {src ?
       <FramedIconBox>
-        <FramedIcon src={src} onClick={onClick} frameColor={frameColor} />
-        <IconLabel color={frameColor}>{iconLabel}</IconLabel>
+        <FramedIcon src={src} onClick={onClick} frameColor={iconState.frameColor} frameBorder={iconState.frameBorder}/>
+        <IconLabel color={iconState.frameColor}>{iconState.iconLabel}</IconLabel>
       </FramedIconBox> :
       <EmptyIcon onClick={onClick}>
         <Label>クリックしてください</Label>
@@ -35,7 +35,7 @@ const IconLabel = styled.span`
   display: inline-block;
   position: absolute;
   bottom: 0;
-  width: 120px;
+  width: ${ICON_SIZE}px;
   font-weight: bold;
   background-color: white;
   color: ${props => props.color || 'orange'};
@@ -45,8 +45,8 @@ const IconLabel = styled.span`
 const EmptyIcon = styled.div`
   position: relative;
   background-color: lightgrey;
-  width: 120px;
-  height: 120px;
+  width: ${ICON_SIZE}px;
+  height: ${ICON_SIZE}px;
   border-radius: 50%;
 `
 const Label = styled.span`
@@ -60,7 +60,7 @@ const Label = styled.span`
   right: 0;
   margin: auto;
   height: 8px;
-  width: 120px;
+  width: ${ICON_SIZE}px;
 `
 
 export default IconForm;
