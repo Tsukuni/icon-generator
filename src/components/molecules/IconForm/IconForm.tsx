@@ -5,17 +5,18 @@ import FileInput from '../../atoms/FileInput';
 
 type IconFormType = {
   src?: string;
+  iconLabel?: string;
   iconName: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const IconForm: React.FC<IconFormType> = ({ src, iconName, onClick, onChange }) => (
+const IconForm: React.FC<IconFormType> = ({ src, iconLabel, iconName, onClick, onChange }) => (
   <>
     {src ?
       <FramedIconBox>
         <FramedIcon src={src} onClick={onClick} />
-        <IconLabel>TSUKUNIN</IconLabel>
+        <IconLabel>{iconLabel}</IconLabel>
       </FramedIconBox> :
       <EmptyIcon onClick={onClick}>
         <Label>クリックしてください</Label>
