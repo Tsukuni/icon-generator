@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 type IconType = {
   src?: string;
+  onClick?: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const Icon: React.FC<IconType> = ({ src }) => (
-  <Image src={src} alt="icon" />
+const Icon: React.FC<IconType> = ({ src, onClick }) => (
+  <Image src={src} alt="icon" onClick={onClick}/>
 );
 
 const Image = styled.img`

@@ -4,6 +4,7 @@ import IconGenerator from '../../components/templetes/IconGenerator';
 
 const IconGeneratorPage: React.FC = () => {
   const [file, setFile] = useState<string>();
+  const iconName = 'icon'
 
   const handleChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files === null) return;
@@ -15,7 +16,13 @@ const IconGeneratorPage: React.FC = () => {
     }
   }
 
-  return <IconGenerator file={file} onChangeFile={handleChangeFile} />
+  const handleClickIcon = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    const inputFile = document.querySelector(`input[name=${iconName}]`);
+    console.log(inputFile)
+    inputFile && inputFile.dispatchEvent(new MouseEvent("click"));
+  }
+
+  return <IconGenerator file={file} iconName={iconName} onChangeFile={handleChangeFile} onClickIcon={handleClickIcon} />
 } 
 
 export default IconGeneratorPage
