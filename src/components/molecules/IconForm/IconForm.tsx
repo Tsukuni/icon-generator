@@ -12,7 +12,11 @@ type IconFormType = {
 
 const IconForm: React.FC<IconFormType> = ({ src, iconName, onClick, onChange }) => (
   <>
-    {src ? <FramedIcon src={src} onClick={onClick}/> :
+    {src ?
+      <FramedIconBox>
+        <FramedIcon src={src} onClick={onClick} />
+        <IconLabel>TSUKUNIN</IconLabel>
+      </FramedIconBox> :
       <EmptyIcon onClick={onClick}>
         <Label>クリックしてください</Label>
       </EmptyIcon>
@@ -20,6 +24,21 @@ const IconForm: React.FC<IconFormType> = ({ src, iconName, onClick, onChange }) 
     <FileInput name={iconName} onChange={onChange} hidden={true} />
   </>
 )
+
+const FramedIconBox = styled.div`
+  position: relative;
+`
+
+const IconLabel = styled.span`
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  font-weight: bold;
+  background-color: white;
+  color: orange;
+  text-align: center;
+`
 
 const EmptyIcon = styled.div`
   position: relative;
