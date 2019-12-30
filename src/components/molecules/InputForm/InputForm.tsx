@@ -23,6 +23,9 @@ const Form = styled.div`
   position: relative;
   margin: 24px 0 0 0;
   vertical-align: middle;
+  &:nth-of-type(1) {
+    margin-top: 0;
+  }
 `
 
 export default InputForm;

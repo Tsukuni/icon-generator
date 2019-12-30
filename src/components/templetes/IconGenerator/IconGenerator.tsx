@@ -1,5 +1,7 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import IconSettingBox from '../../organisms/IconSettingBox';
+import Title from '../../atoms/Title';
 
 type IconGeneratorType = {
   file?: string;
@@ -11,7 +13,8 @@ type IconGeneratorType = {
 }
 
 const IconGenerator: React.FC<IconGeneratorType> = ({ file, iconState, iconName, onChangeIconState, onChangeFile, onClickIcon }) => (
-  <>
+  <Container>
+    <Title size="large" style={{ color: 'white', textAlign: 'center' }}>それっぽいアイコン作れるやつ</Title>
     <IconSettingBox
       file={file}
       iconState={iconState}
@@ -20,7 +23,11 @@ const IconGenerator: React.FC<IconGeneratorType> = ({ file, iconState, iconName,
       onChangeIconState={onChangeIconState}
       onChangeFile={onChangeFile}
     />
-  </>
+  </Container>
 );
+
+const Container = styled.div`
+  margin: 40px auto;
+`
 
 export default IconGenerator;
