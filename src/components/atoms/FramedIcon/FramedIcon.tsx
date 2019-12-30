@@ -3,18 +3,19 @@ import styled from 'styled-components';
 
 type FramedIconType = {
   src?: string;
+  frameColor?: string;
   onClick?: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const FramedIcon: React.FC<FramedIconType> = ({ src, onClick }) => (
-  <IconBox>
+const FramedIcon: React.FC<FramedIconType> = ({ src, frameColor, onClick }) => (
+  <IconBox color={frameColor}>
     <Image src={src} alt="icon" onClick={onClick}/>
   </IconBox>
 );
 
 const IconBox = styled.div`
   position: relative;
-  background-color: orange;
+  background-color: ${props => props.color || 'orange'};
   width: 120px;
   height: 120px;
   border-radius: 50%;

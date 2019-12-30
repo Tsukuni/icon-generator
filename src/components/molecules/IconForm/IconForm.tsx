@@ -7,16 +7,17 @@ type IconFormType = {
   src?: string;
   iconLabel?: string;
   iconName: string;
+  frameColor?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const IconForm: React.FC<IconFormType> = ({ src, iconLabel, iconName, onClick, onChange }) => (
+const IconForm: React.FC<IconFormType> = ({ src, iconLabel, iconName, frameColor, onClick, onChange }) => (
   <>
     {src ?
       <FramedIconBox>
-        <FramedIcon src={src} onClick={onClick} />
-        <IconLabel>{iconLabel}</IconLabel>
+        <FramedIcon src={src} onClick={onClick} frameColor={frameColor} />
+        <IconLabel color={frameColor}>{iconLabel}</IconLabel>
       </FramedIconBox> :
       <EmptyIcon onClick={onClick}>
         <Label>クリックしてください</Label>
@@ -37,7 +38,7 @@ const IconLabel = styled.span`
   width: 120px;
   font-weight: bold;
   background-color: white;
-  color: orange;
+  color: ${props => props.color || 'orange'};
   text-align: center;
 `
 
