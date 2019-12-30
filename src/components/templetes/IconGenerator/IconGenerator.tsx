@@ -1,15 +1,16 @@
 import * as React from 'react';
-import FileInput from '../../atoms/FileInput';
+import IconForm from '../../molecules/IconForm';
 
 type InconGeneratorType = {
-  file: any;
+  file?: string;
+  iconName: string;
   onChangeFile: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onClickIcon: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const IconGenerator: React.FC<InconGeneratorType> = ({ file, onChangeFile }) => (
+const IconGenerator: React.FC<InconGeneratorType> = ({ file, iconName, onChangeFile, onClickIcon }) => (
   <>
-    <FileInput name='icon' value="" onChange={onChangeFile} />
-    <img src={file} alt="" />
+    <IconForm src={file} iconName={iconName} onClick={onClickIcon} onChange={onChangeFile} />
   </>
 );
 
