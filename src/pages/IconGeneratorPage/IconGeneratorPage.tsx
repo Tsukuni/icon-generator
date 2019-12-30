@@ -3,7 +3,7 @@ import { useState } from 'react';
 import IconGenerator from '../../components/templetes/IconGenerator';
 
 const IconGeneratorPage: React.FC = () => {
-  const [file, setFile] = useState<String>();
+  const [file, setFile] = useState<string>();
 
   const handleChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files === null) return;
