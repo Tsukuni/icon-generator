@@ -1,27 +1,22 @@
 import * as React from 'react';
 import { useState } from 'react';
 import IconGenerator from '../../components/templetes/IconGenerator';
+import { iconStateValidator } from '../../utils/validator';
 
 const IconGeneratorPage: React.FC = () => {
   const [file, setFile] = useState<string>();
   const [iconState, setIconState] = useState<{}>({
-    label: '',
+    iconLabel: '',
+    frameColor: '',
+    frameBorder: '',
   })
-  const iconName = 'icon'
+  const iconName = 'icon';
 
   const handleChangeIconState = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type } = event.target;
-    
-    if (type === 'number') {
-      setIconState({
-        ...iconState,
-        [name]: Number(value)
-      })
-    } else {
-      setIconState({
-        ...iconState,
-        [name]: value
-      })
+    const { name, value } = event.target;
+    if (iconStateValidator(name, value)) {
+      const newValue = name === 'frameBorder' ? Number(value) : value
+      setIconState({ ...iconState, [name]: newValue });
     }
   }
 

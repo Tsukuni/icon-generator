@@ -17,15 +17,29 @@ const IconSettingBox: React.FC<IconSettingBoxType> = ({ file, iconState, iconNam
   <>
     <IconForm
       src={file}
-      iconLabel={iconState.label}
+      iconState={iconState}
       iconName={iconName}
       onClick={onClickIcon}
       onChange={onChangeFile}
     />
     <InputForm
       labelText='名前'
-      value={iconState.label}
-      name='label'
+      value={iconState.iconLabel}
+      name='iconLabel'
+      type='text'
+      onChange={onChangeIconState}
+    />
+    <InputForm
+      labelText='色'
+      value={iconState.frameColor}
+      name='frameColor'
+      type='text'
+      onChange={onChangeIconState}
+    />
+    <InputForm
+      labelText='ボーダー'
+      value={iconState.frameBorder}
+      name='frameBorder'
       type='text'
       onChange={onChangeIconState}
     />
