@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import IconGenerator from '../../components/templetes/IconGenerator';
 import { iconStateValidator } from '../../utils/validator';
+import html2canvas from 'html2canvas';
 
 const IconGeneratorPage: React.FC = () => {
   const [file, setFile] = useState<string>();
@@ -11,7 +12,6 @@ const IconGeneratorPage: React.FC = () => {
     frameBorder: '',
   })
   const iconName = 'icon';
-
   const handleChangeIconState = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     if (iconStateValidator(name, value)) {
@@ -35,6 +35,16 @@ const IconGeneratorPage: React.FC = () => {
     inputFile && inputFile.dispatchEvent(new MouseEvent("click"));
   }
 
+  const handleClickSaveButton = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    const framedIcon = document.getElementById('framedIcon');
+    framedIcon && html2canvas(framedIcon).then(canvas => {
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/jpeg', 0.85);
+      a.download = 'icon.jpg';
+      a.click();
+    });
+  }
+
   return (
     <IconGenerator
       file={file}
@@ -43,6 +53,7 @@ const IconGeneratorPage: React.FC = () => {
       onChangeIconState={handleChangeIconState}
       onChangeFile={handleChangeFile}
       onClickIcon={handleClickIcon}
+      onClickSaveButton={handleClickSaveButton}
     />
   )
 } 

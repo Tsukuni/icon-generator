@@ -12,9 +12,10 @@ type IconSettingBoxType = {
   onChangeIconState: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChangeFile: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClickIcon: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
+  onClickSaveButton: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const IconSettingBox: React.FC<IconSettingBoxType> = ({ file, iconState, iconName, onChangeIconState, onChangeFile, onClickIcon }) => (
+const IconSettingBox: React.FC<IconSettingBoxType> = ({ file, iconState, iconName, onChangeIconState, onChangeFile, onClickIcon, onClickSaveButton }) => (
   <Card style={{ width: '60%', maxWidth: '550px', minWidth: '250px' }}>
     <GridList>
       <GridItem>
@@ -26,7 +27,7 @@ const IconSettingBox: React.FC<IconSettingBoxType> = ({ file, iconState, iconNam
           onChange={onChangeFile}
         />
         <ButtonWrapper>
-          <Button label='保存' onClick={() => "a"} />
+          <Button label='保存' onClick={onClickSaveButton} />
         </ButtonWrapper>
       </GridItem>
       <GridItem>
