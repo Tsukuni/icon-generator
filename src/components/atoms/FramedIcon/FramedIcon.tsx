@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { ICON_SIZE } from '../../../utils/constants';
+import { ICON_SIZE, ICON_SIZE_SP } from '../../../utils/constants';
 
 type FramedIconType = {
   src?: string;
@@ -23,6 +23,10 @@ const IconBox = styled.div`
   border-radius: 50%;
   object-fit: cover;
   margin: auto;
+  @media (max-width: 400px) {
+    width: ${props => props.theme.frameBorder ? ICON_SIZE_SP + props.theme.frameBorder : ICON_SIZE_SP + 4}px;
+    height: ${props => props.theme.frameBorder ? ICON_SIZE_SP + props.theme.frameBorder : ICON_SIZE_SP + 4}px;
+  }
 `
 
 const Image = styled.img`
@@ -36,6 +40,10 @@ const Image = styled.img`
   height: ${ICON_SIZE}px;
   border-radius: 50%;
   object-fit: cover;
+  @media (max-width: 400px) {
+    width: ${ICON_SIZE_SP}px;
+    height: ${ICON_SIZE_SP}px;
+  }
 `
 
 export default FramedIcon;

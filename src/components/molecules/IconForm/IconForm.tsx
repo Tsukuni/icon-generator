@@ -2,7 +2,7 @@ import * as React from 'react';
 import FramedIcon from '../../atoms/FramedIcon';
 import styled from 'styled-components';
 import FileInput from '../../atoms/FileInput';
-import { ICON_SIZE } from '../../../utils/constants';
+import { ICON_SIZE, ICON_SIZE_SP } from '../../../utils/constants';
 
 type IconFormType = {
   src?: string;
@@ -49,6 +49,10 @@ const EmptyIcon = styled.div`
   height: ${ICON_SIZE}px;
   border-radius: 50%;
   margin: auto;
+  @media (max-width: 400px) {
+    width: ${ICON_SIZE_SP}px;
+    height: ${ICON_SIZE_SP}px;
+  }
 `
 const Label = styled.span`
   display: inline-block;
@@ -62,6 +66,9 @@ const Label = styled.span`
   margin: auto;
   height: 8px;
   width: ${ICON_SIZE}px;
+  @media (max-width: 400px) {
+    width: ${ICON_SIZE_SP}px;
+  }
 `
 
 export default IconForm;

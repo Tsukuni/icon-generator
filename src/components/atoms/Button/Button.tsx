@@ -23,6 +23,7 @@ const ButtonTag = styled.button`
   font-weight: bold;
   color: rgb(19, 59, 28);
   border-color: rgb(19, 59, 28);
+  background-color: white;
   text-align: center;
   outline: none;
   border-radius: 3px;
