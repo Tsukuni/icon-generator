@@ -5,11 +5,17 @@ type InputType = {
   name: string;
   type: string;
   value: string | number;
+  placeholder?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<InputType> = ({ name, type, value, onChange }) => (
-  <InputBox name={name} type={type} value={value} onChange={onChange} />
+const Input: React.FC<InputType> = ({ name, type, value, placeholder, onChange }) => (
+  <InputBox
+    name={name}
+    type={type}
+    value={value}
+    placeholder={placeholder}
+    onChange={onChange} />
 );
 
 const InputBox = styled.input`

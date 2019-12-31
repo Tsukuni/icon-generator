@@ -35,11 +35,11 @@ const IconLabel = styled.span`
   display: inline-block;
   position: absolute;
   bottom: 0;
-  width: ${ICON_SIZE}px;
-  font-weight: bold;
-  background-color: white;
+  width: 100%;
+  font-weight: 600;
   color: ${props => props.color || 'orange'};
   text-align: center;
+  text-shadow:0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white;
 `
 
 const EmptyIcon = styled.div`
@@ -48,6 +48,7 @@ const EmptyIcon = styled.div`
   width: ${ICON_SIZE}px;
   height: ${ICON_SIZE}px;
   border-radius: 50%;
+  margin: auto;
 `
 const Label = styled.span`
   display: inline-block;
