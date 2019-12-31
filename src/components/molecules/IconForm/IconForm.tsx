@@ -19,7 +19,7 @@ const IconForm: React.FC<IconFormType> = ({ src, iconState, iconName, onClick, o
         <FramedIcon src={src} onClick={onClick} iconLabel={iconState.iconLabel} frameColor={iconState.frameColor} frameBorder={iconState.frameBorder}/>
       </FramedIconBox> :
       <EmptyIcon onClick={onClick}>
-        <Label>クリックしてください</Label>
+        <Label>画像選択してね</Label>
       </EmptyIcon>
     }
     <FileInput name={iconName} onChange={onChange} hidden={true} />

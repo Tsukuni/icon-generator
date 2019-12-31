@@ -24,9 +24,11 @@ const IconGeneratorPage: React.FC = () => {
     if (event.target.files === null) return;
 
     const reader = new FileReader()
-    reader.readAsDataURL(event.target.files[0])
-    reader.onload = () => {
-      setFile(reader.result as string)
+    if (event.target.files[0]) {
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload = () => {
+        setFile(reader.result as string)
+      }
     }
   }
 
