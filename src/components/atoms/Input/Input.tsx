@@ -23,6 +23,7 @@ const InputBox = styled.input`
   display: block;
   background: #fff;
   border: solid 1px #ddd;
+  font-size: 16px;
   border-radius: 3px;
   padding: 10px 12px;
   width: 100%;
