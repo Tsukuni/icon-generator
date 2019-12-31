@@ -15,7 +15,7 @@ type IconSettingBoxType = {
 }
 
 const IconSettingBox: React.FC<IconSettingBoxType> = ({ file, iconState, iconName, onChangeIconState, onChangeFile, onClickIcon }) => (
-  <Card style={{ width: '60%', maxWidth: '550px', minWidth: '350px' }}>
+  <Card style={{ width: '60%', maxWidth: '550px', minWidth: '250px' }}>
     <GridList>
       <GridItem>
         <IconForm

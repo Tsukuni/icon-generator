@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
     color: #414141;
     background-color: rgb(19, 59, 28);
   }
+  html {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
 `
 
 const App: React.FC = () => {

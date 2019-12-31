@@ -14,7 +14,7 @@ type IconGeneratorType = {
 
 const IconGenerator: React.FC<IconGeneratorType> = ({ file, iconState, iconName, onChangeIconState, onChangeFile, onClickIcon }) => (
   <Container>
-    <Title size="large" style={{ color: 'white', textAlign: 'center' }}>それっぽいアイコン作れるやつ</Title>
+    <Title size="regular" style={{ color: 'white', textAlign: 'center' }}>それっぽいの作れるやつ</Title>
     <IconSettingBox
       file={file}
       iconState={iconState}
