@@ -16,8 +16,7 @@ const IconForm: React.FC<IconFormType> = ({ src, iconState, iconName, onClick, o
   <>
     {src ?
       <FramedIconBox>
-        <FramedIcon src={src} onClick={onClick} frameColor={iconState.frameColor} frameBorder={iconState.frameBorder}/>
-        <IconLabel color={iconState.frameColor}>{iconState.iconLabel}</IconLabel>
+        <FramedIcon src={src} onClick={onClick} iconLabel={iconState.iconLabel} frameColor={iconState.frameColor} frameBorder={iconState.frameBorder}/>
       </FramedIconBox> :
       <EmptyIcon onClick={onClick}>
         <Label>クリックしてください</Label>
@@ -29,17 +28,6 @@ const IconForm: React.FC<IconFormType> = ({ src, iconState, iconName, onClick, o
 
 const FramedIconBox = styled.div`
   position: relative;
-`
-
-const IconLabel = styled.span`
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  font-weight: 600;
-  color: ${props => props.color || 'orange'};
-  text-align: center;
-  text-shadow:0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white;
 `
 
 const EmptyIcon = styled.div`

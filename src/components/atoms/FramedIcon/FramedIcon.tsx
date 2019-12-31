@@ -6,12 +6,14 @@ type FramedIconType = {
   src?: string;
   frameColor?: string;
   frameBorder?: number;
+  iconLabel?: string;
   onClick?: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
-const FramedIcon: React.FC<FramedIconType> = ({ src, frameColor, frameBorder, onClick }) => (
-  <IconBox theme={{ frameColor, frameBorder }}>
+const FramedIcon: React.FC<FramedIconType> = ({ src, iconLabel, frameColor, frameBorder, onClick }) => (
+  <IconBox id="framedIcon" theme={{ frameColor, frameBorder }}>
     <Image src={src} alt="icon" onClick={onClick}/>
+    <IconLabel color={frameColor}>{iconLabel}</IconLabel>
   </IconBox>
 );
 
@@ -44,6 +46,17 @@ const Image = styled.img`
     width: ${ICON_SIZE_SP}px;
     height: ${ICON_SIZE_SP}px;
   }
+`
+
+const IconLabel = styled.span`
+  display: inline-block;
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  font-weight: 600;
+  color: ${props => props.color || 'orange'};
+  text-align: center;
+  text-shadow:0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white,0 0 2px white;
 `
 
 export default FramedIcon;
