@@ -22,6 +22,7 @@ const IconBox = styled.div`
   height: ${props => props.theme.frameBorder ? ICON_SIZE + props.theme.frameBorder : ICON_SIZE + 4}px;
   border-radius: 50%;
   object-fit: cover;
+  margin: auto;
 `
 
 const Image = styled.img`

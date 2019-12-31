@@ -3,19 +3,23 @@ import styled from 'styled-components';
 
 import Label from '../../atoms/Label';
 import Input from '../../atoms/Input';
+import HintText from '../../atoms/HintText';
 
 type InputForm = {
   labelText: string;
+  hintText?: string;
+  placeholder?: string;
   name: string;
   type: string;
   value: string | number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputForm: React.FC<InputForm> = ({ labelText, name, type, value, onChange }) => (
+const InputForm: React.FC<InputForm> = ({ labelText, hintText, placeholder, name, type, value, onChange }) => (
   <Form>
     <Label>{labelText}</Label>
-    <Input name={name} type={type} value={value} onChange={onChange} />
+    <HintText>{hintText}</HintText>
+    <Input name={name} type={type} value={value} placeholder={placeholder} onChange={onChange} />
   </Form>
 )
 
